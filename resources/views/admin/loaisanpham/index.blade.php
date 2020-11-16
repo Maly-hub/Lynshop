@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-8 text-center">
                 <h4>Danh sách loại sản phẩm</h4>
-                <form action="" method="get">
+                <form action="{{ route('search-type') }}" method="get">
                     @csrf
                     <div class="form-group">
                         <label for="">Tìm kiếm</label>

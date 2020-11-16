@@ -22,6 +22,7 @@ Route::group(['middleware' => ['checkNhanVien']], function(){
         Route::get('/repair-type/{id}','LoaiSanPhamController@edit')->name('repair-type');
         Route::post('/handle-repair-type/{id}','LoaiSanPhamController@update')->name('handle-repair-type');
         Route::get('/delete-type/{id}','LoaiSanPhamController@destroy')->name('delete-type');
+        Route::get('/search-type','LoaiSanPhamController@timKiem')->name('search-type');
     });
     Route::group(['prefix' => 'product'], function(){
         // Sản Phẩm

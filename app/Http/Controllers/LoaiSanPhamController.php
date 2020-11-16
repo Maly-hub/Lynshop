@@ -113,4 +113,10 @@ class LoaiSanPhamController extends Controller
             return redirct()->route('category-list');
         }
     }
+
+    public function timKiem(Request $request){
+        $tuKhoa = $request->get('tuKhoa');
+        $loaiSanPhamTimDuoc = DB::table('loaisanpham')->where('l_ten','like','%'.$tuKhoa."%")->get();
+        return view ('admin.loaisanpham.search', compact('tuKhoa', 'loaiSanPhamTimDuoc'));
+    }
 }
