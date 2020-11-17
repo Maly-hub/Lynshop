@@ -42,6 +42,4 @@ Route::get('/login-admin','Authcontroller@viewLogin')->name('login-admin');
 Route::post('/handle-login-admin','Authcontroller@xuLyDangNhap')->name('handle-login-admin');
 Route::get('/logout','Authcontroller@logout')->name('logout');
 
-Route::get('/home-client', function(){
-    return view('client.index');
-})->name('/home-client');
+Route::get('/home-client', 'TrangChuController@index')->name('/home-client');

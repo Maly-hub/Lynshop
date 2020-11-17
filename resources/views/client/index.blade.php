@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-sm-6 text-center">
                     <div class="featured">
-                        <a href="#" class="featured-img" style="background-image: url(client-template/images/men.jpg);"></a>
+                        <a href="#" class="featured-img" style="background-image: url(client-template/images/item-11.jpg);"></a>
                         <div class="desc">
                             <h2><a href="#">Bộ Sưu Tập Nam</a></h2>
                         </div>
@@ -99,19 +99,29 @@
                     <h2>Bán Chạy Nhất</h2>
                 </div>
             </div>
-            <div class="row row-pb-md">
-                <div class="col-lg-3 mb-4 text-center">
-                    <div class="product-entry border">
-                        <a href="#" class="prod-img">
-                            <img src="{{ asset('client-template') }}/images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-                        </a>
-                        <div class="desc">
-                            <h2><a href="#">Women's Boots Shoes Maca</a></h2>
-                            <span class="price">$139.00</span>
+                <div class="row row-pb-md">
+                    @foreach ($sanPham as $item)
+                    <div class="col-lg-3 mb-4 text-center">
+                        <div class="product-entry border">
+                            <a href="#" class="prod-img">
+                                <img src="{{ asset('hinhanhsanpham') }}/{{ $item->sp_hinhanh }}" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                            </a>
+                            <div class="desc">
+                                <h2><a href="#">Tên: {{ $item->sp_ten }}</a></h2>
+                                <span class="price">Giá: {{ number_format($item->sp_gia) }}đ
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="" type="button" class="btn btn-info">Thêm vào giỏ</a>
+                                            <a href="" type="button" class="btn btn-success">Chi tiết</a>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                <div class="col-lg-3 mb-4 text-center">
+                {{-- <div class="col-lg-3 mb-4 text-center">
                     <div class="product-entry border">
                         <a href="#" class="prod-img">
                             <img src="{{ asset('client-template') }}/images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
@@ -278,8 +288,7 @@
                             <span class="price">$139.00</span>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>  --}}
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p><a href="#" class="btn btn-primary btn-lg">Mua sắm tất cả sản phẩm</a></p>
