@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get ('/', function(){
-    return view('admin.index');
-})->name('home');
+// Route::get ('/', function(){
+//     return view('admin.login');
+// })->name('home');
 
 Route::group(['middleware' => ['checkNhanVien']], function(){
     Route::group(['prefix' => 'category-list'], function(){
@@ -38,8 +38,14 @@ Route::group(['middleware' => ['checkNhanVien']], function(){
 //Đăng nhập, Đăng ký, Đăng xuất
 Route::get('/register','Authcontroller@viewRegister')->name('register');
 Route::post('/handle-register','Authcontroller@xuLyDangKy')->name('handle-register');
-Route::get('/login-admin','Authcontroller@viewLogin')->name('login-admin');
+Route::get('/','Authcontroller@viewLogin')->name('login-admin');
 Route::post('/handle-login-admin','Authcontroller@xuLyDangNhap')->name('handle-login-admin');
 Route::get('/logout','Authcontroller@logout')->name('logout');
 
-Route::get('/home-client', 'TrangChuController@index')->name('/home-client');
+//Giao diện khách hàng
+Route::get('/home-client', 'TrangChuController@index')->name('home-client');
+Route::get('/detail-product-client/{id}','TrangChuController@show')->name('detail-product-client');
+//Giỏ hàng
+Route::get('/cart','TrangChuController@cart')->name('cart');
+Route::get('/add-to-cart/{idProduct}','TrangChuController@addtoCart')->name('add-to-cart');
+Route::get('/clear-cart','TrangChuController@clearCart')->name('clear-cart');

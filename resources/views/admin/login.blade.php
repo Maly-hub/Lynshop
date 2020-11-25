@@ -36,9 +36,9 @@
                 <button class="btn btn-info btn-block" type="submit">Đăng nhập</button>
             </div>
         </form>
-        <p class="mb-1">
+        {{-- <p class="mb-1">
             <a href="{{ route('register') }}">Đăng ký</a>
-        </p>
+        </p> --}}
     </div>
     <!-- /.login-card-body -->
   </div>

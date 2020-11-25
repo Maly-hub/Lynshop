@@ -20,7 +20,7 @@ class NhanVienSeed extends Seeder
                     'nv_sdt' => $faker->phoneNumber,
                     'username' => 'maly'.rand(1,999),
                     'password' => Hash::make(123),
-                    'q_id' => 1
+                    'q_id' => 2
                 ]
                 ];
             $addNhanVien = DB::table('nhanvien')->insert($nhanVien);

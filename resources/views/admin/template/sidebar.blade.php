@@ -54,18 +54,14 @@
               <p>KHÁCH HÀNG</p>
             </a>
           </li>
+          @if (Auth::guard('nhanvien')->user()->q_id == 1)
           <li class="nav-item">
             <a href="{{ route('register') }}" class="nav-link">
               <i class="fa fa-square nav-icon" aria-hidden="true"></i>
-              <p>ĐĂNG KÝ</p>
+              <p>THÊM NHÂN VIÊN</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('login-admin') }}" class="nav-link">
-              <i class="fa fa-square nav-icon" aria-hidden="true"></i>
-              <p>ĐĂNG NHẬP</p>
-            </a>
-          </li>
+          @endif
           <li class="nav-item">
             <a href="{{ route('logout') }}" class="nav-link">
               <i class="fa fa-undo nav-icon" aria-hidden="true"></i>

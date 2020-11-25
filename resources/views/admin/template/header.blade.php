@@ -6,7 +6,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('home')}}" class="nav-link">Trang chủ</a>
+            <a href="" class="nav-link">Trang chủ</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Liên hệ</a>

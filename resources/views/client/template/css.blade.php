@@ -26,4 +26,5 @@
 	<link rel="stylesheet" href="{{ asset('client-template') }}/fonts/flaticon/font/flaticon.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{{ asset('client-template') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('client-template') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('client-template') }}/css/styleclient.css">

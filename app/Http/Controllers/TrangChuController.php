@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use Cart;
 class TrangChuController extends Controller
 {
     /**
@@ -47,7 +47,10 @@ class TrangChuController extends Controller
      */
     public function show($id)
     {
-        //
+        $sanPham = DB::table('sanpham')
+                        ->where('sp_id',$id)
+                        ->join('loaisanpham','loaisanpham.l_id','sanpham.l_id')->first();
+        return view ('client.detail', compact('sanPham'));
     }
 
     /**
@@ -82,5 +85,25 @@ class TrangChuController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cart()
+    {
+        //Lấy nội dung của giỏ hàng ra
+        $cartCollection = Cart::getContent();
+        return view('client.cart',compact('cartCollection'));
+    }
+
+    public function clearCart(){
+        Cart::clear();
+        return redirect()->back();
+    }
+
+    public function addtoCart($idProduct){
+        //đầu vào nhận id sản phẩm sau đó dựa vào id tìm thông tin sản phẩm
+        $product = DB::table('sanpham')->where('sp_id',$idProduct)->first();
+        //sử dụng hàm add của thư viện
+        Cart::add($product->sp_id, $product->sp_ten, $product->sp_gia,1);
+        return redirect()->back();
     }
 }
