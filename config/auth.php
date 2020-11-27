@@ -56,6 +56,16 @@ return [
             'driver' => 'token',
             'provider' => 'nhanvien',
         ],
+
+        //Dang ky session va token cho bang khach hanh
+        'khachhang' => [
+            'driver' => 'session',
+            'provider' => 'khachhang'
+        ],
+        'khachhang-api' => [
+            'driver' => 'token',
+            'provider' => 'khachhang',
+        ],
     ],
 
     /*
@@ -89,6 +99,11 @@ return [
         'nhanvien' => [
             'driver' => 'eloquent',
             'model' => App\NhanVienModel::class,
+        ],
+
+        'khachhang' => [
+            'driver' => 'eloquent',
+            'model' => App\KhachHangModel::class,
         ]
     ],
 

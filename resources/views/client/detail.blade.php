@@ -12,11 +12,12 @@
                 <div class="product_description">
                     <div class="product_name">Tên sản phẩm: {{ $sanPham->sp_ten }}</div></br>
                     <div class="product_price">Giá Sản Phẩm: {{ number_format($sanPham->sp_gia) }}đ</div></br>
-                    <div class="product_number">Số Lượng Sản Phẩm: {{ $sanPham->sp_soluong }}</div></br>
-                        {{-- <div>
-                            <button type="button" class="btn btn-primary mt-3"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Thêm vào giỏ</button>
-                            <button   type="button" class="btn btn-danger mt-3 ml-3" >Mua ngay</button>
-                        </div> --}}
+                    <div class="product_number">Số lượng: <input type="number" name="soLuong" value="1" min="1" max="{{ $sanPham->sp_soluong }}"></div></br>
+                    <div>
+                        {{-- <button type="button" class="btn btn-primary mt-3"><i class="fa fa-shopping-cart" aria-hidden="true">Thêm vào giỏ</i></button> --}}
+                        <a href="{{ route('add-more-product', ['idProduct'=> $sanPham->sp_id]) }}" type="button" class="btn btn-primary">Thêm vào giỏ</a>
+                        <button type="button" class="btn btn-danger mt-3 ml-3" >Mua ngay</button>
+                    </div>
                         <div >
                             <div class="btn btn-success mt-5" >
                                     <a href="{{ route('home-client') }}" style="color:honeydew">

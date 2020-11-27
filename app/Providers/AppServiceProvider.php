@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use View;
+use DB;
+use Cart;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $loaiSanPham = DB::table('loaisanpham')->get();
+        View::share('loaiSanPham',$loaiSanPham);
+        //share all view
+        view()->composer('*', function ($view)
+        {
+            $view->with('cart', Cart::getContent());
+        });
     }
 }

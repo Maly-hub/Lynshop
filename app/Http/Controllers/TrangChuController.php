@@ -99,11 +99,32 @@ class TrangChuController extends Controller
         return redirect()->back();
     }
 
+    //Xoa mot san pham trong gio hang
+    public function clearOneProduct($idProduct){
+        //Xoa mot san pham co id truyen vao
+        Cart::remove($idProduct);
+        return redirect()->back();
+    }
+
     public function addtoCart($idProduct){
         //đầu vào nhận id sản phẩm sau đó dựa vào id tìm thông tin sản phẩm
         $product = DB::table('sanpham')->where('sp_id',$idProduct)->first();
         //sử dụng hàm add của thư viện
         Cart::add($product->sp_id, $product->sp_ten, $product->sp_gia,1);
         return redirect()->back();
+    }
+
+    public function addMoreProductToCart(Request $request, $idProduct)
+    {
+        $soLuong = $request->get('soLuong');
+        dd($soLuong);
+        // $product = DB::table('sanpham')->where('sp_id',$idProduct)->first();
+        // Cart::add($product->sp_id, $product->sp_ten, $product->sp_gia,$soLuong);
+        // return redirect()->back();
+    }
+
+    public function getProduct($idCategory){
+        $product = DB::table('sanpham')->where('l_id',$idCategory)->get();
+        dd($product);
     }
 }

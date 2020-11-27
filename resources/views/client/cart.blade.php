@@ -26,7 +26,7 @@
                         <p id="gia" data-id="1">{{ number_format($item->getPriceSum()) }}</p>
                     </td>
                     <td>
-                        <a href="" class="btn btn-danger">X</a>
+                        <a href="{{ route('clear-one-product', ['idProduct'=>$item->id]) }}" class="btn btn-danger">X</a>
                     </td>
                 </tr>
             @endforeach
@@ -35,6 +35,6 @@
                     {{-- <td colspan="1"><a class="btn btn-primary" href="#">Cập nhật</a></td> --}}
                 </tr>
         </table>
-        <td colspan="1"><a class="btn btn-primary" href="">Thanh toán</a></td>
+        <td colspan="1"><a class="btn btn-primary" href="{{ route('thanh-toan') }}">Thanh toán</a></td>
     </div>
 @endsection

@@ -18,19 +18,32 @@
                 <div class="col-sm-12 text-left menu-1">
                     <ul>
                         <li class="active"><a href="{{ route('home-client')}}">Trang chủ</a></li>
-                        <li class="has-dropdown">
+                        {{-- <li class="has-dropdown">
                             <a href="men.html">Nam</a>
-                            {{-- <ul class="dropdown">
+                            <ul class="dropdown">
                                 <li><a href="product-detail.html">Product Detail</a></li>
                                 <li><a href="cart.html">Shopping Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
                                 <li><a href="order-complete.html">Order Complete</a></li>
                                 <li><a href="add-to-wishlist.html">Wishlist</a></li>
-                            </ul> --}}
+                            </ul>
                         </li>
-                        <li><a href="women.html">Nữ</a></li>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="women.html">Nữ</a></li> --}}
+                        <li class="has-dropdown">
+                            <a href="">Danh Mục Sản Phẩm</a>
+                            <ul class="dropdown">
+                                @foreach ($loaiSanPham as $item)
+                                    <li><a href="{{ route('get-product-in-category', ['idCategory'=>$item->l_id]) }}">{{ $item->l_ten }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('login-client') }}">Đăng nhập</a></li>
+                        {{-- <li><a href="{{ route('register-client')}}">Đăng ký</a></li> --}}
+                        @if (Auth::guard('khachhang')->check())
+                                <li class="list-group-item normal-border">Xin chào, <b>{{ Auth::guard('khachhang')->user()->username }}</b></li>
+                                <li><a href="">Đơn hàng</a></li>
+                        @endif
+                        <li><a href="{{ route('logout-client')}}">Đăng xuất</a></li>
                         <li class="cart">
                             <a href="{{ route('cart') }}"><i class="icon-shopping-cart"></i> Giỏ hàng [{{ Cart::getTotalquantity() }}]</a>
                             <a href="{{ route('clear-cart') }}"><i class="icon-trash"></i></a>
