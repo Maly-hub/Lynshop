@@ -37,7 +37,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('don-hang') }}" class="nav-link">
               <i class="fa fa-square nav-icon" aria-hidden="true"></i>
               <p>ĐƠN HÀNG</p>
             </a>

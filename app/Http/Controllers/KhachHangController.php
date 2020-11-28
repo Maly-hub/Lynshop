@@ -137,7 +137,7 @@ class KhachHangController extends Controller
         // $idCus = Auth::guard('khachhang')->id();
         $order = DB::table('donhang')->where('kh_id',$idCus)->get();
         // dd ($order);
-        return view('client.donhang', compact('order'));
+        return view('client.order', compact('order'));
     }
 
     public function viewRegister(){

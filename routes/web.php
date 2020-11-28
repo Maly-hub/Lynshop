@@ -50,7 +50,7 @@ Route::get('/cart','TrangChuController@cart')->name('cart');
 Route::get('/add-to-cart/{idProduct}','TrangChuController@addtoCart')->name('add-to-cart');
 Route::get('/clear-cart','TrangChuController@clearCart')->name('clear-cart');
 Route::get('/clear-one-product/{idProduct}','TrangChuController@clearOneProduct')->name('clear-one-product');
-Route::get('/add-more-product/{idProduct}','TrangChuController@addMoreProductToCart')->name('add-more-product');
+Route::post('/add-more-product/{idProduct}','TrangChuController@addMoreProductToCart')->name('add-more-product');
 
 Route::get('/get-product-in-category/{idCategory}','TrangChuController@getProduct')->name('get-product-in-category');
 
@@ -61,14 +61,12 @@ Route::get('/login-client','KhachHangController@viewLogin')->name('login-client'
 Route::post('/handle-login-client','KhachHangController@xuLyDangNhap')->name('handle-login-client');
 Route::get('/logout-client','KhachHangController@logout')->name('logout-client');
 
-// Route::get ('/payment', function(){
-//     return view('client.payment');
-// })->name('payment');
-
-// Route::get ('/order', function(){
-//     return view('client.order');
-// })->name('order');
 Route::get('/thanh-toan','KhachHangController@payment')->name('thanh-toan');
 Route::post('/dat-hang','KhachHangController@datHang')->name('dat-hang');
 Route::post('/capnhat-soluong','KhachHangController@updateSoLuong')->name('capnhat-soluong');
+Route::get('/donhang-kh/{idCus}','KhachHangController@donHang')->name('donhang-kh');
 
+//Quản lý đơn hàng
+Route::get('/don-hang','DonHangController@donHang')->name('don-hang');
+Route::get('/chi-tiet-don/{idDonHang}','DonHangController@chiTietDonHang')->name('chi-tiet-don');
+Route::get('/cap-nhat-trang-thai/{idDonHang}','DonHangController@capNhatTrangThai')->name('cap-nhat-trang-thai');

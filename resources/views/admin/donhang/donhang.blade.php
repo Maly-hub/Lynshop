@@ -1,17 +1,19 @@
-@extends('client.template.master')
+@extends('admin.template.master')
 @section('content')
     <div class="row">
         <div class="col-12 text-center">
-            <h4>Đơn hàng</h4>
+            <h4>Danh sách đơn hàng</h4>
         </div>
         <div class="col-12">
-            {{-- <form action="" method="GET">
-                    @csrf
-                    <div class="form-group">
-                        <label for="exampleInputTenloai">Đơn hàng</label>
-                        <input type="text" name="tuKhoa" class="form-control" id="exampleInputTenloai" aria-describedby="tenloaiHelp" placeholder="Tìm kiếm theo tên...">
-                    </div>
-            </form> --}}
+                {{-- <form action="{{ route('tim-kiem-don-hang') }}" method="GET">
+                        <div class="row">
+                            <input type="text" name="tuKhoa" class="form-control col-md-8" id="exampleInputTenloai" aria-describedby="tenloaiHelp" placeholder="Tìm kiếm theo ...">
+                            <select name="thuocTinh" id="">
+                                <option value="donHang">Đơn hàng</option>
+                                <option value="tenKhachHang">Tên khách hàng</option>
+                            </select>
+                        </div>
+                </form> --}}
             <table class="table text-center">
                 <thead>
                 <tr>
@@ -20,10 +22,11 @@
                     <th scope="col">Địa chỉ</th>
                     <th scope="col">Số điện thoại</th>
                     <th scope="col">Trạng thái</th>
+                    <th scope="col">Chi tiết</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($order as $item)
+                    @foreach ($donHang as $item)
                         <tr>
                             <th scope="row">{{ $item->dh_id }}</th>
                             <td>{{ $item->dh_nguoinhan }}</td>
@@ -41,6 +44,9 @@
                             @if ( $item->dh_trangthai == 4)
                                 <td>Đã giao</td>
                             @endif
+                            <td>
+                            <a href="{{ route('chi-tiet-don',['idDonHang'=>$item->dh_id]) }}" class="btn btn-success">Chi tiết đơn</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

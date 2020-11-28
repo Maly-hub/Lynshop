@@ -112,8 +112,13 @@
                                     <span class="price">Số lượng: {{ $item->sp_soluong }}
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="{{ route('add-to-cart', ['idProduct'=> $item->sp_id]) }}" type="button" class="btn btn-outline-warning">Thêm vào giỏ</a>
-                                            <a href="{{ route('detail-product-client', ['id'=> $item->sp_id]) }}" type="button" class="btn btn-warning">Chi tiết</a>
+                                            @if ($item->sp_soluong <= 0)
+                                                <a type="button" class="btn btn-danger add-to-cart" disabled>Hết hàng</a>
+                                                <a href="{{ route('detail-product-client', ['id'=> $item->sp_id]) }}" type="button" class="btn btn-warning">Chi tiết</a>
+                                            @else
+                                                <a href="{{ route('add-to-cart', ['idProduct'=> $item->sp_id]) }}" type="button" class="btn btn-outline-warning">Thêm vào giỏ</a>
+                                                <a href="{{ route('detail-product-client', ['id'=> $item->sp_id]) }}" type="button" class="btn btn-warning">Chi tiết</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </span>

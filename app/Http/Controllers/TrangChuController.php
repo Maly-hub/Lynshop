@@ -117,10 +117,10 @@ class TrangChuController extends Controller
     public function addMoreProductToCart(Request $request, $idProduct)
     {
         $soLuong = $request->get('soLuong');
-        dd($soLuong);
-        // $product = DB::table('sanpham')->where('sp_id',$idProduct)->first();
-        // Cart::add($product->sp_id, $product->sp_ten, $product->sp_gia,$soLuong);
-        // return redirect()->back();
+        // dd($soLuong);
+        $product = DB::table('sanpham')->where('sp_id',$idProduct)->first();
+        Cart::add($product->sp_id, $product->sp_ten, $product->sp_gia,$soLuong);
+        return redirect()->back();
     }
 
     public function getProduct($idCategory){

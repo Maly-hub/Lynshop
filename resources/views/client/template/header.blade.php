@@ -41,7 +41,7 @@
                         {{-- <li><a href="{{ route('register-client')}}">Đăng ký</a></li> --}}
                         @if (Auth::guard('khachhang')->check())
                                 <li class="list-group-item normal-border">Xin chào, <b>{{ Auth::guard('khachhang')->user()->username }}</b></li>
-                                <li><a href="">Đơn hàng</a></li>
+                    <li><a href="{{ route('donhang-kh',['idCus'=> Auth::guard('khachhang')->id()]) }}">Đơn hàng</a></li>
                         @endif
                         <li><a href="{{ route('logout-client')}}">Đăng xuất</a></li>
                         <li class="cart">
