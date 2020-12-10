@@ -16,14 +16,21 @@
 @endsection
 @section('content')
     <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-right">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Thêm loại sản phẩm
+                </button>
+            </div>
+        </div>
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark text-center">Loại Sản Phẩm</h1>
+                <h1 class="m-0 text-dark text-center">Danh sách loại sản phẩm</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
         <div class="row">
-            <div class="col-sm-12 col-md-8 text-center">
-                <h4>Danh sách loại sản phẩm</h4>
+            <div class="col-sm-12 col-md-12 text-center">
                 <form action="{{ route('search-type') }}" method="get">
                     @csrf
                     <div class="form-group">
@@ -80,27 +87,43 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-12 col-md-4">
-                <h4 class="text-center">Thêm loại sản phẩm</h4>
-                {{-- Thong bao them san pham --}}
-                @if (Session::has('them'))
-                    <p style="color: green" class="text-center">
-                        {{ Session::get('them') }}
-                    </p>
-                @endif
-                @if (Session::has('error-them'))
-                    <p style="color: red" class="text-center">
-                        {{ Session::get('error-them') }}
-                    </p>
-                @endif
-                <form action="{{ route('add-product-type') }}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                    <label for="exampleInputTenloai">Tên loại</label>
-                    <input type="text" name="tenLoai" class="form-control" id="exampleInputTenloai" aria-describedby="tenloaiHelp" placeholder="Nhập tên loại sản phẩm...">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Thêm</button>
-                </form>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="{{ route('add-product-type') }}" method="POST">
+                        @csrf
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thêm loại sản phẩm</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-sm-12 col-md-12">
+                                    {{-- Thong bao them san pham --}}
+                                    @if (Session::has('them'))
+                                        <p style="color: green" class="text-center">
+                                            {{ Session::get('them') }}
+                                        </p>
+                                    @endif
+                                    @if (Session::has('error-them'))
+                                        <p style="color: red" class="text-center">
+                                            {{ Session::get('error-them') }}
+                                        </p>
+                                    @endif
+                                    <div class="form-group">
+                                    <label for="exampleInputTenloai">Tên loại</label>
+                                    <input type="text" name="tenLoai" class="form-control" id="exampleInputTenloai" aria-describedby="tenloaiHelp" placeholder="Nhập tên loại sản phẩm...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div><!-- /.container-fluid -->

@@ -51,7 +51,6 @@
         <div class="col-4"></div>
     </div>
 @include('client.template.js')
-
 </body>
 </html>
 

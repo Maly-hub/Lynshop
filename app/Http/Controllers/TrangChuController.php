@@ -125,6 +125,7 @@ class TrangChuController extends Controller
 
     public function getProduct($idCategory){
         $product = DB::table('sanpham')->where('l_id',$idCategory)->get();
-        dd($product);
+        // dd($product);
+        return view ('client.product_type', compact('product'));
     }
 }
