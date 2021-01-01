@@ -32,7 +32,7 @@
 <script src="{{asset('admin-template')}}/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin-template')}}/dist/js/demo.js"></script>
-<script src="{{asset('admin-template')}}/dist/js/custom.js"></script>
+{{--  <script src="{{asset('admin-template')}}/dist/js/custom.js"></script>  --}}
 
 {{-- nhung link chinh sua noi dung phan mo ta --}}
 <!-- include summernote css/js -->

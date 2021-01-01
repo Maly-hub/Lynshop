@@ -200,4 +200,10 @@ class KhachHangController extends Controller
         Auth::guard('khachhang')->logout();
         return redirect()->route('home-client');
     }
+
+    public function kh()
+    {
+        $khachhang = DB::table('khachhang')->get();
+        return view ('admin.khachhang', compact('khachhang'));
+    }
 }

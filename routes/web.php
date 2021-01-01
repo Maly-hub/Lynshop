@@ -70,3 +70,9 @@ Route::get('/donhang-kh/{idCus}','KhachHangController@donHang')->name('donhang-k
 Route::get('/don-hang','DonHangController@donHang')->name('don-hang');
 Route::get('/chi-tiet-don/{idDonHang}','DonHangController@chiTietDonHang')->name('chi-tiet-don');
 Route::get('/cap-nhat-trang-thai/{idDonHang}','DonHangController@capNhatTrangThai')->name('cap-nhat-trang-thai');
+
+//Thống kê
+Route::get('/thong-ke', 'ThongKeController@index')->name('thong-ke');
+
+//Khách hàng
+Route::get('/khach-hang', 'KhachHangController@kh')->name('khach-hang');

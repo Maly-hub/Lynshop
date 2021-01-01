@@ -43,13 +43,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href=" {{ route('thong-ke') }}" class="nav-link">
               <i class="fa fa-square nav-icon" aria-hidden="true"></i>
               <p>THỐNG KÊ</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route("khach-hang") }}" class="nav-link">
               <i class="fa fa-square nav-icon" aria-hidden="true"></i>
               <p>KHÁCH HÀNG</p>
             </a>
