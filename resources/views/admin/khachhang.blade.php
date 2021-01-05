@@ -21,7 +21,7 @@
         <!-- Widget: user widget style 1 -->
         <div class="card card-widget widget-user">
           <!-- Add the bg color to the header using any of the bg-* classes -->
-          <div class="widget-user-header bg-warning">
+          <div class="widget-user-header bg-info">
             <h3 class="widget-user-username">{{ $item->kh_hoten }}</h3>
             {{--  <h5 class="widget-user-desc">Founder &amp; CEO</h5>  --}}
           </div>

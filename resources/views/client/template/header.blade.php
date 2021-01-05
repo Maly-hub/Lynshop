@@ -6,12 +6,12 @@
                     <div id="colorlib-logo"><a href="index.html">Lynshop</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
-                <form action="#" class="search-wrap">
+                {{--  <form action="#" class="search-wrap">
                    <div class="form-group">
                       <input type="search" class="form-control search" placeholder="Tìm kiếm">
                       <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
                    </div>
-                </form>
+                </form>  --}}
              </div>
          </div>
             <div class="row">

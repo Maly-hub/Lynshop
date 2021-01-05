@@ -46,7 +46,7 @@ class LoaiSanPhamController extends Controller
             //dd ('Them thanh cong');
             return redirect()->route('category-list');
         } catch (\Throwable $th) {
-            Sesion::flash('error-them', 'Có lỗi trong quá trình thêm');
+            Session::flash('error-them', 'Có lỗi trong quá trình thêm');
             return redirect()->route('category-list');
         }
 
